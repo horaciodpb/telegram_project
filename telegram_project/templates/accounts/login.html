@@ -1,0 +1,119 @@
+
+<!--
+<h2>Iniciar sesión</h2>
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Usuario"><br>
+    <input type="password" name="password" placeholder="Contraseña"><br>
+    <button type="submit">Ingresar</button>
+</form>
+
+<p>No tenés cuenta? <a href="/accounts/register/">Registrate</a></p>
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar sesión</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #e6f0ff; /* celeste muy suave */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background: white;
+            padding: 35px;
+            width: 350px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 12px rgba(0,0,0,0.15);
+            text-align: center;
+            border-top: 10px solid #0039a6; /* azul correo argentino */
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #0039a6;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            color: #0039a6;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #009fe3; /* celeste fuerte */
+            border-radius: 6px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        input:focus {
+            border-color: #0039a6;
+        }
+
+        button {
+            background: #ffd100; /* amarillo correo argentino */
+            border: none;
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            color: #0039a6;
+        }
+
+        button:hover {
+            background: #ffcf33;
+        }
+
+        .error-message {
+            color: red;
+            margin-bottom: 15px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="login-container">
+
+    <h2>Iniciar sesión</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="error-message">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Usuario:</label>
+        <input type="text" name="username" required>
+
+        <label>Contraseña:</label>
+        <input type="password" name="password" required>
+
+        <button type="submit">Ingresar</button>
+    </form>
+</div>
+
+</body>
+</html>
+

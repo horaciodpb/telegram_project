@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #e6f0ff; /* celeste suave */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dashboard-container {
+            background: white;
+            padding: 40px;
+            width: 420px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 12px rgba(0,0,0,0.15);
+            text-align: center;
+            border-top: 10px solid #0039a6; /* azul */
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            font-size: 26px;
+            color: #0039a6;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            color: #0039a6;
+        }
+
+        a.boton {
+            display: inline-block;
+            text-decoration: none;
+            background: #ffd100; /* amarillo */
+            padding: 14px 25px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 17px;
+            color: #0039a6;
+            transition: 0.2s;
+        }
+
+        a.boton:hover {
+            background: #ffcf33;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <h2>Panel Principal</h2>
+
+    <p>Bienvenido, <strong>{{ request.user.username }}</strong>!</p>
+
+    <a class="boton" href="{% url 'create_telegram' %}">✉️ Crear nuevo telegrama</a>
+
+</div>
+
+</body>
+</html>
